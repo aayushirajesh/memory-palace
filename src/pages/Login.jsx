@@ -58,7 +58,7 @@ export default function Login() {
 
   return (
       <div className="flex items-start justify-center px-6 py-5 text-white relative overflow-hidden " >
-        <div className=" w-105  bg-cardBg/90 border border-borderClr rounded-[28px] px-10 py-12 backdrop-blur-md shadow-2xl relative z-10 " >
+        <div className="w-full max-w-md bg-cardBg/90 border border-borderClr rounded-[28px] px-10 py-12 backdrop-blur-md shadow-2xl relative z-10 " >
       <h1 className=" font-cinzelDecorative  text-primaryText text-3xl text-center tracking-wide mb-10 " >
         Memory Palace
       </h1>
