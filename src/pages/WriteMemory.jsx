@@ -5,14 +5,18 @@ import { createMemory } from "../services/memoryService";
 
 export default function WriteMemory() {
   const navigate = useNavigate();
-
-  async function handleSave(memoryData) {
-    try {
-      await createMemory(memoryData);
-      navigate("/memorywall");
-    } catch (error) {
-      console.error(error.message);
-      alert("Failed to save memory.");
+  async function handleSave(title, content, imageBase64, mood) {
+    try { 
+      await createMemory({
+        title,
+        content,
+        imageBase64,
+        mood,
+      }); 
+      navigate("/memorywall"); 
+    } catch (error) { 
+      console.error(error); 
+      alert(error.message);
     }
   }
 

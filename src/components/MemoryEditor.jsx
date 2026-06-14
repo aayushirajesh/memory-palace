@@ -355,14 +355,15 @@ export const MemoryEditor = ({ onSave, onCancel }) => {
   const [error,       setError]       = useState(null);
   const [textAlign,   setTextAlign]   = useState('left');
   const [fontSize,    setFontSize]    = useState('normal');
+  const [mood, setMood] = useState("dreamy");
   const fileInputRef = useRef(null);
   const handleAnimationComplete = useCallback(() => {
-    onSave(title.trim(), content.trim(), imageBase64).catch((err) => {
+    onSave(title.trim(), content.trim(), imageBase64, mood).catch((err) => {
       setError(err.message || 'Failed to engrave memory fragment.');
       setIsSubmitting(false);
       cancel();
     });
-  }, [title, content, imageBase64, onSave]);
+  }, [title, content, imageBase64, mood,onSave]);
 
   const { stage, start: startAnimation, cancel } = useAnimationSequence(handleAnimationComplete);
   const isAnimating = stage !== 'idle';  // true whenever we're in the middle of the animation sequence, from the moment user clicks "Save" until the final scene completes and calls onSave callback
@@ -433,6 +434,22 @@ export const MemoryEditor = ({ onSave, onCancel }) => {
               title="Cycle Inscription Size">
               Aa
             </button>
+            <div> 
+              <select
+                value={mood}
+                onChange={(e) => setMood(e.target.value)}
+                className="bg-cardBg border border-borderClr/25 rounded-full px-4 py-3 text-primaryText font-cinzel text-[10px] sm:text-xs uppercase tracking-widest outline-none cursor-pointer"
+              >
+                <option value="dreamy">Dreamy</option>
+                <option value="nostalgic">Nostalgic</option>
+                <option value="bittersweet">Bittersweet</option>
+                <option value="melancholy">Melancholy</option>
+                <option value="nightmare">Nightmare</option>
+                <option value="hopeful">Hopeful</option>
+                <option value="serene">Serene</option>
+                <option value="forgotten">Forgotten</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>

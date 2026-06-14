@@ -9,7 +9,7 @@ import MemoryWall from "./pages/MemoryWall";
 import MemoryPage from "./pages/MemoryPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-function App() {
+export default function App() {
   return (
     <Routes>
       {/* General Palace Routes */}
@@ -29,10 +29,8 @@ function App() {
         <Route path="/login" element={<Login />} />
       </Route>
 
-      {/* Void Redirection */}
+      {/* Redirection */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
-
-export default App;
