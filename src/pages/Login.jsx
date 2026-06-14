@@ -100,9 +100,6 @@ export default function Login() {
           } 
         </button> 
       </form> 
-      <button className=" text-xs  text-white/60 underline mt-4  hover:text-white transition " >
-        Forgot password?
-      </button> 
       <button onClick={() => setIsLogin(!isLogin) } className=" mt-10 w-full text-center text-xs  text-primaryText/60  hover:text-primaryText transition " >
         {
           isLogin
