@@ -78,13 +78,32 @@ Deployment:
 * Vercel
 
 ---
+## Run Locally
+
+```bash
+git clone https://github.com/aayushirajesh/memory-palace.git
+cd memory-palace
+npm install
+npm run dev
+```
+
+Create a `.env` file and add your Supabase credentials:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+## Contributions
+
+Contributions, ideas, and feedback are welcome. If you'd like to improve the experience, feel free to open an issue or submit a pull request.
+
+---
 
 ## Future Improvements
 
-* Add ambient background
-* Add custom cursor
 * Search and filtering by mood
 * Memory sharing through private links
+* Add ambient background and custom cursor
 
 ---
 
