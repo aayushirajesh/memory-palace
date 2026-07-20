@@ -1,10 +1,26 @@
-# Memory Palace
+<h1 align="center"> Memory Palace </h1>
 
-A memory journaling experience designed around the idea that memories should feel discovered, not stored.
+<p align="center">A memory journaling experience designed around the idea that memories should feel discovered, not stored.</p>
 
-Memory Palace transforms personal reflections into floating memory gates that drift through an interactive palace of remembrance. Instead of presenting entries as a traditional list, memories exist as portals scattered across an infinite, animated memory wall, creating a more emotional and immersive way to revisit moments.
+<p align="center">Memory Palace transforms personal reflections into floating memory gates that drift through an interactive palace of remembrance. Instead of presenting entries as a traditional list, memories exist as portals scattered across an infinite, animated memory wall, creating a more emotional and immersive way to revisit moments.</p>
 
-### Live Demo: https://memorypalaceapp.vercel.app/
+<p align="center">
+
+<img src="https://img.shields.io/github/license/aayushirajesh/memory-palace?style=for-the-badge">
+
+<img src="https://img.shields.io/github/stars/aayushirajesh/memory-palace?style=for-the-badge">
+
+<img src="https://img.shields.io/github/forks/aayushirajesh/memory-palace?style=for-the-badge">
+
+<img src="https://img.shields.io/github/issues/aayushirajesh/memory-palace?style=for-the-badge">
+
+<img src="https://img.shields.io/github/issues-pr/aayushirajesh/memory-palace?style=for-the-badge">
+
+<img src="https://img.shields.io/github/contributors/aayushirajesh/memory-palace?style=for-the-badge">
+
+</p>
+
+<h4 align="center"> Website: https://memorypalaceapp.vercel.app/ </h4>
 
 ---
 
@@ -18,6 +34,28 @@ The project combines storytelling, animation, and interaction design to create a
 
 ---
 
+## What This Project Does
+
+- Presents a journaling experience where memories are discovered via an animated, infinite memory wall.
+- Lets authenticated users create, attach images to, tag with mood, and revisit personal memories.
+- Stores data using Supabase (Auth + Postgres) and is built for deployment on Vercel.
+
+## Why It’s Useful
+
+- Encourages exploration and emotional engagement through spatial UI and animations.
+- Simple, secure auth flows using Supabase.
+- Modular frontend with components for animation, scene management, and memory CRUD operations.
+
+## Key Features
+
+- Email-based authentication (Supabase)
+- Create / Read / Delete memories with optional images
+- Mood tags and timestamps
+- Responsive animations (Framer Motion + custom tracks)
+- Protected routes for authenticated content
+
+---
+
 ## Gallery
 
 [writememory.webm](https://github.com/user-attachments/assets/f1c79a3b-d6a1-42e5-af0e-5c9b72f30dd7)
@@ -28,57 +66,84 @@ The project combines storytelling, animation, and interaction design to create a
 
 ---
 
-## Highlights
+## Project Structure
 
-* Secure authentication with email verification
-* Create, store, and revisit personal memories
-* Optional image attachments for visual context
-* Mood tags that provide a quick emotional snapshot of each memory
-* Interactive memory wall with floating memory gates
-* Responsive experience across desktop and mobile devices
-* Protected user data through Supabase Row Level Security (RLS)
-
----
-
-## Technical Challenges Solved
-
-### 1. Designing an Infinite Floating Memory Wall
-
-The memory wall is built around continuously looping tracks of floating memory gates rather than a traditional grid layout. Creating the illusion of an endless space required custom positioning logic, track recycling, viewport-aware movement, and careful management of gate spacing to prevent visible gaps, overlaps, and abrupt resets during extended browsing sessions.
-
-### 2. Animation Orchestration & Interaction Design
-
-The experience combines drifting memory gates, hover interactions, ambient effects, page transitions, and modal states. Coordinating these layers while maintaining smooth performance required careful animation sequencing, state management, and responsive behavior across different screen sizes.
-
- **_The result → a locked 60fps frame rate on the memory wall, a Lighthouse Performance score of 92, and a perfect 100 on Best Practices._**
- 
-### 3. Translating a Concept into an Interactive Experience
-
-A major challenge was turning the abstract idea of a 'memory palace' into an interface users could intuitively navigate. Instead of relying on conventional lists or cards, memories are explored through movement and spatial discovery, requiring iterative design decisions around navigation, visual hierarchy, and user feedback.
-
----
+```
+memory-palace/
+├── src/
+│   ├── animations/
+│   │   └── transitions.js
+│   ├── assets/
+│   │   └── door.png
+│   ├── components/
+│   │   ├── AmbientBackground.jsx
+│   │   ├── CustomCursor.jsx
+│   │   ├── FloatingDoor.jsx
+│   │   ├── Footer.jsx
+│   │   ├── MemoryEditor.jsx
+│   │   ├── MemoryViewer.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── PalaceScene.jsx
+│   │   └── ProtectedRoute.jsx
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   ├── hooks/
+│   │   └── useFloatingAnimation.js
+│   ├── layouts/
+│   │   ├── AuthLayout.jsx
+│   │   └── PalaceLayout.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── MemoryPage.jsx
+│   │   ├── MemoryWall.jsx
+│   │   └── WriteMemory.jsx
+│   ├── services/
+│   │   ├── authService.js
+│   │   ├── memoryService.js
+│   │   └── supabase.js
+│   ├── utils/
+│   │   └── generateDoorPosition.js
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── .env.example
+├── eslint.config.js
+├── index.html
+├── package.json
+├── vercel.json
+├── vite.config.js
+├── README.md
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+└── SECURITY.md
+```
 
 ## Tech Stack
-
-Frontend:
-
-* React
-* React Router
-* Tailwind CSS
-* Framer Motion
-
-Backend & Database:
-
-* Supabase Authentication
-* PostgreSQL (Supabase)
-* Row Level Security (RLS)
-
-Deployment:
-
-* Vercel
+| Layer | Technology |
+|--------|------------|
+| Frontend | React 19 |
+| Routing | React Router 7 |
+| Styling | Tailwind CSS v4 |
+| Animation | Framer Motion |
+| State | Zustand |
+| Backend | Supabase (Auth + Postgres) |
+| Security | Row Level Security (RLS) |
+| Build Tool | Vite |
+| Linting | ESLint (flat config) |
+| Deployment | Vercel |
 
 ---
-## Run Locally
+
+## Getting Started (Developer)
+
+Prerequisites:
+
+- Node.js 18+ and npm
+- A Supabase project (URL + anon/publishable key)
+
+Quick start:
 
 ```bash
 git clone https://github.com/aayushirajesh/memory-palace.git
@@ -87,24 +152,111 @@ npm install
 npm run dev
 ```
 
-Create a `.env` file and add your Supabase credentials:
+Environment:
+
+1. Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+2. Edit `.env` and add your Supabase values (see `.env.example`):
 
 ```env
 VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key 
 ```
-## Contributions
 
-Contributions, ideas, and feedback are welcome. If you'd like to improve the experience, feel free to open an issue or submit a pull request.
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+npm run preview
+```
 
 ---
 
-## Future Improvements
+## Supabase Setup Notes
 
-* Search and filtering by mood
-* Memory sharing through private links
-* Add ambient background and custom cursor
+- Table name: `memories` (used in `src/services/memoryService.js`). Ensure your Supabase schema includes expected columns: `id`, `user_id`, `title`, `content`, `mood`, `image_url`, `created_at`.
+- Enable Row Level Security so each user can only access their own rows. The frontend uses the authenticated user's `user.id` when inserting records.
+
 
 ---
 
-Created by Aayushi Rajesh 🤍
+## Where To Get Help
+
+- Report issues or ask questions using GitHub Issues: https://github.com/aayushirajesh/memory-palace/issues
+- For feature discussions or design questions, open an issue tagged `discussion`.
+
+---
+
+## Contributing
+
+Contributions from developers of all experience levels are welcome.
+
+Please read **CONTRIBUTING.md** before creating a Pull Request.
+
+### Contribution Workflow
+
+```bash
+git checkout -b feat/feature-name
+git commit -m "feat: add feature"
+git push origin feat/feature-name
+
+or
+
+git checkout -b fix/fix-name
+git commit -m "fix: fix description"
+git push origin fix/fix-name
+```
+
+Please ensure:
+
+- Code follows existing style
+- No breaking changes
+- Documentation is updated
+- Build passes successfully
+- Pull Requests remain focused
+
+---
+
+## Security
+
+If you discover a security vulnerability, please **do not** create a public issue.
+
+Instead, report it privately by following the instructions in **SECURITY.md**.
+
+---
+
+## Code of Conduct
+
+Please read our **CODE_OF_CONDUCT.md** before participating.
+
+We are committed to creating a welcoming, inclusive, and respectful community.
+
+---
+
+## License
+
+Distributed under the **MIT License**.
+
+See **LICENSE** for more information.
+
+---
+
+## Maintainers
+
+- Primary: Aayushi Rajesh (original author)
+
+If you'd like to be listed as a contributor or maintainer, open a pull request to update this file.
+
+---
+
+Made with ❤️

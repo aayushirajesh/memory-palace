@@ -36,14 +36,14 @@
   "main": "eslint.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aayushirajesh/MemoryPalace.git"
+    "url": "git+https://github.com/aayushirajesh/memory-palace.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Aayushi Rajesh",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aayushirajesh/MemoryPalace/issues"
+    "url": "https://github.com/aayushirajesh/memory-palace/issues"
   },
-  "homepage": "https://github.com/aayushirajesh/MemoryPalace#readme",
+  "homepage": "https://github.com/aayushirajesh/memory-palace#readme",
   "description": ""
 }
