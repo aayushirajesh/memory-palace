@@ -45,4 +45,16 @@ input:-webkit-autofill:focus {
   background-size: 12px 12px;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+    background: #05010a;
+  }
+
+  a,
+  button {
+    cursor: none;
+  }
+}
+
 /* Add text selection styling */
