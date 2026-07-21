@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout";
 import {LogIn, UserRoundPlus} from "lucide-react";
 import {login, signup} from "../services/authService";
+import Card from "../components/alertCard";
 
 export default function Login() {
 
@@ -12,9 +13,11 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [verificationSent, setVerificationSent] = useState(false);
+  const [error, setError] = useState(null);
 
   async function handleAuth(e) {
     e.preventDefault();
+    setError(null);
     setLoading(true);
     try {
       if (isLogin) {
@@ -27,7 +30,11 @@ export default function Login() {
       }
     } 
     catch (error) {
-      alert(error.message);
+      
+      setError(error.message);
+      setTimeout(()=>{
+        setError(null);
+      }, 4500);
     } 
     finally {
       setLoading(false);
@@ -57,7 +64,12 @@ export default function Login() {
   }
 
   return (
-      <div className="flex items-start justify-center px-6 py-5 text-white relative overflow-hidden " >
+      <div className="flex flex-col items-center justify-start px-6 py-5 text-white relative overflow-hidden " >
+        {error && (
+          <div className="fixed top-1 z-50 animate-in fade-in slide-in-from-top duration-300 w-full flex justify-center px-6">
+            <Card errorMsg={error} />
+          </div>
+        )}
         <div className="w-full max-w-md bg-cardBg/90 border border-borderClr rounded-[28px] px-10 py-12 backdrop-blur-md shadow-2xl relative z-10 " >
       <h1 className=" font-cinzelDecorative  text-primaryText text-3xl text-center tracking-wide mb-10 " >
         Memory Palace
