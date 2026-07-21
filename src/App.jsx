@@ -8,29 +8,33 @@ import WriteMemory from "./pages/WriteMemory";
 import MemoryWall from "./pages/MemoryWall";
 import MemoryPage from "./pages/MemoryPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import CustomCursor from './components/CustomCursor';
 
 export default function App() {
   return (
-    <Routes>
-      {/* General Palace Routes */}
-      <Route element={<PalaceLayout />}>
-        <Route path="/" element={<Home />} />
-        
-        {/* Secured routes behind the Protected Route gate */}
-        <Route element={<ProtectedRoute  />}>
-          <Route path="/memorywall" element={<MemoryWall />} />
-          <Route path="/memory/:id" element={<MemoryPage />} />
-          <Route path="/write" element={<WriteMemory />} />
+    <>
+      <CustomCursor />
+      <Routes>
+        {/* General Palace Routes */}
+        <Route element={<PalaceLayout />}>
+          <Route path="/" element={<Home />} />
+          
+          {/* Secured routes behind the Protected Route gate */}
+          <Route element={<ProtectedRoute  />}>
+            <Route path="/memorywall" element={<MemoryWall />} />
+            <Route path="/memory/:id" element={<MemoryPage />} />
+            <Route path="/write" element={<WriteMemory />} />
+          </Route>
         </Route>
-      </Route>
 
-      {/* Authentication Isolated Routes */}
-      <Route element={<AuthLayout />}>
-        <Route path="/login" element={<Login />} />
-      </Route>
+        {/* Authentication Isolated Routes */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
 
-      {/* Redirection */}
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+        {/* Redirection */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   );
 }
