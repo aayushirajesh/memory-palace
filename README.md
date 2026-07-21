@@ -251,6 +251,12 @@ See **LICENSE** for more information.
 
 ---
 
+## Support the Project
+
+If you find Memory Palace useful or enjoyed contributing to it, consider leaving a ⭐ on the repository. Every star helps the project reach more people.
+
+---
+
 ## Maintainers
 
 - Primary: Aayushi Rajesh (original author)
